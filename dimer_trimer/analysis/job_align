@@ -1,0 +1,23 @@
+for Np in 100;do
+#for Np in 50 80 100 150 200 300 400 500;do
+     for R in 20.0 30.0 40.0 50.0 80.0 100.0 150.0 200.0;do
+        for radiusB in 1.0;do
+           for Nclusters in 2 3;do
+               for kAB in 200.0;do
+                   for dimension in 2;do
+                       for koninit in 100.0;do
+                            #for koffinit in 0.0000001;do
+                            for koffinit in 0.000000001 0.0000001 0.00001 0.0001 0.001 0.01 0.05 0.2 0.5 1.0 2.0 5.0;do
+                               for restlength in 2.0;do
+                                      bash runjob_align.sh $Np $R $radiusB $Nclusters $kAB $dimension $koninit $koffinit $restlength 
+                               done
+                           done
+                       done
+                   done
+               done
+           done
+        done
+    done
+done
+exit
+

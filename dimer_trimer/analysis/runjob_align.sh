@@ -1,0 +1,84 @@
+#!/bin/bash
+#parameters to vary:
+
+Np=$1
+shift
+
+R=$1
+shift
+
+radiusB=$1
+shift
+
+Nclusters=$1
+shift
+
+kAB=$1
+shift
+
+dimension=$1
+shift
+
+koninit=$1
+shift
+
+koffinit=$1
+shift
+
+restlength=$1
+shift
+
+
+if [ $koffinit -eq 0 ];then
+       epsilon='infinite'
+else
+      if [ $koninit -eq 0 ];then
+             epsilon=0.0
+      else
+             epsilon_raw=$(echo "l($koninit/$koffinit)" | bc -l)
+             epsilon=`printf "%.1f" $epsilon_raw`
+      fi
+fi
+
+if [ $Nclusters -eq 2 ];then
+	simulationtype='dimer'
+fi
+
+if [ $Nclusters -eq 3 ];then
+        simulationtype='trimer'
+fi
+
+scriptdir=$(cd $(dirname $0);pwd)
+wrapper=$scriptdir/../../dybond/run-hoomd2.9.6.bash
+
+metropolis=1
+gammaA=0.1
+gammapatch=0.0001
+dt=0.001
+kspring=10.0
+current_dir=$(pwd)
+dir=$scriptdir/../simulation_setup/${simulationtype}/gammaA${gammaA}_gammapatch${gammapatch}/selfavoiding/Nclusters${Nclusters}/Np${Np}/R${R}/radiusB${radiusB}/kAB${kAB}/epsilon${epsilon}/dimension${dimension}/kspring${kspring}
+
+
+if [ -e $dir/seedlist.txt ];then
+        seedlist=$($wrapper python -u extract_seeds.py --fileprefix $dir/seedlist.txt)
+fi
+
+
+ntasks="1 2 3 4 5 6 7 8 9 10"
+
+for task in $ntasks;do
+   seed=`echo $seedlist | cut -d " " -f $task`
+
+   trajectory_file=$scriptdir/../simulation_setup/${simulationtype}/gammaA${gammaA}_gammapatch${gammapatch}/selfavoiding/Nclusters${Nclusters}/Np${Np}/R${R}/radiusB${radiusB}/kAB${kAB}/epsilon${epsilon}/dimension${dimension}/kspring${kspring}/seed${seed}/restlength${restlength}/${simulationtype}_restl${restlength}_Nc${Nclusters}_Np${Np}_R${R}_rB${radiusB}_kAB${kAB}_eps${epsilon}_dim${dimension}_kspring${kspring}_gammaA${gammaA}_gammapatch${gammapatch}_seed${seed}.allruns.gsd
+
+   $wrapper python -u unwrapping_trajectories.py --trajectory_file $trajectory_file
+
+   trajectory_file=$scriptdir/../simulation_setup/${simulationtype}_restl${restlength}_Nc${Nclusters}_Np${Np}_R${R}_rB${radiusB}_kAB${kAB}_eps${epsilon}_dim${dimension}_kspring${kspring}_gammaA${gammaA}_gammapatch${gammapatch}_seed${seed}.allruns.unwrap.gsd
+   
+   $wrapper python -u align_traj_dimerortrimer.py --trajectory_file $trajectory_file
+
+
+done
+
+ 

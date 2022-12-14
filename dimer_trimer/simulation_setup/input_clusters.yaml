@@ -1,0 +1,12 @@
+---
+#input_clusters
+
+ABC:
+  Np_per_sup: 
+  Nc: 
+
+ABD: 
+  Np_per_sup: 
+  Nc: 
+
+...

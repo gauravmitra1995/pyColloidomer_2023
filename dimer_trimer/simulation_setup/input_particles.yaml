@@ -1,0 +1,82 @@
+---
+#input_particles
+
+#general
+  particle:
+    A:
+     radius:  
+     mass: 1.0
+    B:
+     radius:  
+     mass: 0.001
+    C:
+     radius: 1.0
+     mass: 0.001
+    D:
+     radius: 1.0
+     mass: 0.001
+ 
+#interactions
+  harmonic: 
+    AB: 
+       kspring: 200.0
+       r0: 
+    AC:
+       kspring: 0
+       r0:
+    AD:
+       kspring: 0
+       r0:
+    BC:
+       kspring: 500.0
+       r0:
+    BD:
+       kspring: 500.0
+       r0:
+    ABC:
+       kspring: 10.14
+       r0: 3.1415926536       #r0 is theta0 here
+    ABD:
+       kspring: 10.14
+       r0: 3.1415926536
+
+  soft_V:
+    AA:
+       epsilon: 5000.0
+       rcut: 
+    AC: 
+       epsilon: 500.0
+       rcut: 
+    AD:
+       epsilon: 500.0
+       rcut:
+    BB:
+       epsilon: 200.0
+       rcut: 
+    CC:
+       epsilon: 0
+       rcut:
+    DD:
+       epsilon: 0
+       rcut:
+    CD:
+       epsilon: 0
+       rcut:
+ 
+  dybond: 
+    CC:
+      kon_init:
+      koff_init: 
+      kon_melt: 0.0
+      self_avoid_chain: 
+      kspring: 
+      r0: 
+      Tmelt: 1.6
+      alpha: 200.0
+      temp_dep: 0
+      force_dep: 0
+      metropolis: 
+      dybondchecksteps: 10
+      rmin:  
+      rmax: 
+...

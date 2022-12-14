@@ -1,0 +1,24 @@
+---
+#input_general
+
+fileprefix: 
+gpu: 1
+choice_initialdistribution: 2
+lattice_dim: 
+areafraction: 
+simulationtype: 
+sequence: random
+num_step: 10000001
+gammaA: 
+gammapatch: 
+seed:  
+dumptime: 100
+analyzeperiod: 1000
+dt: 0.001
+kT: 1.0
+dimension: 2 
+r_buff: 1.5
+chain_link: False
+zerodynbondlength: False
+
+...

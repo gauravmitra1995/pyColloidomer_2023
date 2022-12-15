@@ -4,7 +4,6 @@
 export PATH=/share/apps/singularity/bin:$PATH
 
 scriptdir=$(cd $(dirname $0);pwd)
-#basedir=/scratch/projects/hockygroup/data-share/pyColloidomer
 
 args=''
 for i in "$@"; do

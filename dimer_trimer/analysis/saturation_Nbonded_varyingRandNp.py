@@ -74,11 +74,12 @@ def get_heatmaps(Nclusters,r0,kAB,radiusB,dimension,kspring,gammaA,gammapatch,cl
         Np=label[1]
         R=label[0]
         saturationfrac=saturationfractionunbonded_dict[label]
-        results.append(np.array([R,Np,saturationfrac]))
+        Nbonded=(1.0-saturationfrac)*Np
+        results.append(np.array([R,Np,Nbonded]))
 
     results=np.array(results)
     
-    #Phase diagram
+    #Heat map
 
     fig,ax=plt.subplots(figsize=(21,15),dpi=100)
 
@@ -111,15 +112,14 @@ def get_heatmaps(Nclusters,r0,kAB,radiusB,dimension,kspring,gammaA,gammapatch,cl
         plt.title('Trimer (middle droplet)',fontsize=60)
 
     cb=fig.colorbar(im, ax=ax)
-    im.set_clim(0.0,1.0)
     for axis in ['top','bottom','left','right']:
         ax.spines[axis].set_linewidth(5)
     cb.ax.tick_params(labelsize=50)
     plt.xticks(fontsize=50)
     plt.yticks(fontsize=50)
-    cb.set_label(r'$\frac{{N_{unbonded}}^{t=\infty}}{N_{b}}$',labelpad=+15,fontsize=100)
+    cb.set_label(r'${N_{bonded}}^{t=\infty}$',labelpad=+15,fontsize=100)
     fig.tight_layout()
-    plt.savefig('final_figures/Nclusters'+str(Nclusters)+'_clusterid'+str(clusterid)+'_RandNpheatmap.png',bbox_inches='tight')
+    plt.savefig('final_figures/Nclusters'+str(Nclusters)+'_clusterid'+str(clusterid)+'_RandNpheatmap_Nbondedatsaturation.png',bbox_inches='tight')
     plt.close()
     
 for i in range(0,2,1):

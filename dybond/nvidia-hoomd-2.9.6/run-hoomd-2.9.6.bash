@@ -2,8 +2,6 @@
 
 scriptdir=$(cd $(dirname $0);pwd)
 
-#basedir=/scratch/projects/hockygroup/data-share/pyColloidomer
-
 #Make sure singularity is in the path
 export PATH=/share/apps/singularity/bin:$PATH
 

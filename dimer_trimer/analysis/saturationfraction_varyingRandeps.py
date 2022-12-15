@@ -42,7 +42,7 @@ parser.add_argument("--dt",default=0.001,type=float)
 args = parser.parse_args()
 locals().update(vars(args))
 
-def get_phasediagrams(Nclusters,r0,kAB,radiusB,dimension,kspring,gammaA,gammapatch,clusterid):
+def get_heatmaps(Nclusters,r0,kAB,radiusB,dimension,kspring,gammaA,gammapatch,clusterid):
 
     epslist=[]
     Rlist=[]
@@ -74,42 +74,8 @@ def get_phasediagrams(Nclusters,r0,kAB,radiusB,dimension,kspring,gammaA,gammapat
         results.append(np.array([R,eps,saturationfrac]))
 
     results=np.array(results)
-
-    """
-    ctr=0
-    for R in Rlist:
-        saturationfracbonded_alleps=[]
-        saturationfracunbonded_alleps=[]
-        numbonded_alleps=[]
-        for eps in epslist:
-            label=(R,eps)
-            saturationfracunbonded=saturationfractionunbonded_dict[label]
-            saturationfracbonded=1.0-saturationfracunbonded
-            numbonded=round_to_int(saturationfracbonded*label[0])
-            saturationfracbonded_alleps.append(saturationfracbonded)
-            saturationfracunbonded_alleps.append(saturationfracunbonded)
-            numbonded_alleps.append(numbonded)
-            ctr+=1
-        plt.plot(epslist,saturationfracunbonded_alleps,marker='o',markersize=10.0,linewidth=4.0,label=r'$R=$'+str(R))
-        print(epslist)
-        print(R,saturationfracunbonded_alleps)
-    
-    plt.legend(loc='best',ncol=2)
-    plt.xlabel(r'$\varepsilon$',fontsize=30)
-    if(Nclusters==2 and clusterid==0):
-        plt.title('Dimer',fontsize=30)
-    elif(Nclusters==2 and clusterid==1):
-        plt.title('Dimer',fontsize=30)
-    elif(Nclusters==3 and clusterid==0):
-        plt.title('Trimer (terminal droplet)',fontsize=30)
-    elif(Nclusters==3 and clusterid==1):
-        plt.title('Trimer (middle droplet)',fontsize=30)
-    plt.ylabel(r'$\frac{{N_{unbonded}}^{t=\infty}}{N_{b}}$',fontsize=40)
-    plt.show()
-    plt.close()
-    """
-    
-    #Phase diagram:
+ 
+    #Heat map:
  
     fig,ax=plt.subplots(figsize=(22,16),dpi=100)
    
@@ -123,7 +89,6 @@ def get_phasediagrams(Nclusters,r0,kAB,radiusB,dimension,kspring,gammaA,gammapat
     X,Y = np.meshgrid(x,y)
     Z=z.reshape(len(y),len(x))
 
-    #print(Z)
     im=plt.pcolormesh(X,Y,Z,cmap='viridis')
     
     ax.autoscale_view()
@@ -153,4 +118,4 @@ def get_phasediagrams(Nclusters,r0,kAB,radiusB,dimension,kspring,gammaA,gammapat
     
 for i in range(0,2,1):
     clusterid=i
-    get_phasediagrams(Nclusters,r0,kAB,radiusB,dimension,kspring,gammaA,gammapatch,clusterid)
+    get_heatmaps(Nclusters,r0,kAB,radiusB,dimension,kspring,gammaA,gammapatch,clusterid)

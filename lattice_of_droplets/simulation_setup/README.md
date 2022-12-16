@@ -5,9 +5,9 @@
 
 A hierarchy of folders will be created for each unique combination of simulation parameters we have and MD simulations will run inside the final folder of that hierarchy. All relevant simulation parameters are inside the files *input_general_lattice.yaml*, *input_clusters_lattice.yaml* and *input_particles.yaml* (also mentioned in Tables S3,S5 in the paper).
 
-The bash script *vary_parameters_lattice.sh* and *continuesim.sh* takes in important parameters which need to be provided from outside by the user and overrides the default values in the yaml files, using the *update_yaml_lattice.py* script. 
+The bash script *vary_parameters_lattice.sh* and *continuesim.sh* takes in important parameters which need to be provided from outside by the user and overrides the default values in the yaml files, using the *update_yaml_lattice.py* script. The bash scripts also help set up the run directories.
 
-*run-all.sbatch* is the sbatch script for submitting jobes in queue to the HPC cluster.
+*run-all.sbatch* is the sbatch script for submitting jobs in queue to the HPC cluster.
 
 *finalframes* is a folder containing the final frames from the combined gsd files (all the successive runs for a given simulation condition). The final frame files ending with "coloring_by_structure.gsd" were used to prepare the snapshots shown in Fig. 5 of the main text and supplemental figures S6 and S7.
 

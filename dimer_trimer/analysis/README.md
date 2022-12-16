@@ -4,9 +4,9 @@
 
 **Information on content of folders:**
 
-*unbondedpatches_vs_time_data* contains data for fraction of total number of free available binders as a function of simulation time for all the different simulation conditions we have explored (mainly varying number of binders (Nb), droplet radii (R) and binding affinity epsilon). Each of these data files are generated from averaging over the 10 seeds run for each condition. 
+*unbondedpatches_vs_time_data* contains data for fraction of total number of free available binders as a function of simulation time for all the different simulation conditions we have explored (mainly varying number of binders (Np), droplet radii (R) and binding affinity epsilon). Each of these data files are generated from averaging over the 10 seeds run for each condition. 
 
-*saturation_data* contains the data for the value of this fraction at saturation for various choices of R when (a) Nb is varied and epsilon is fixed (b) epsilon is varied and Nb is fixed. This data is basically used to construct all the 6 heat maps shown in Fig.3 of the main text and the one in Fig.S2 of SI.
+*saturation_data* contains the data for the value of this fraction at saturation for various choices of R when (a) Np is varied and epsilon is fixed (b) epsilon is varied and Np is fixed. This data is basically used to construct all the 6 heat maps shown in Fig.3 of the main text and the one in Fig.S2 of SI.
 
 *final_figures* contain all the heat maps (Fig.3, Fig.S2) and also the plots showing the variation of the fraction of available binders with time (and the fitted curves are shown too). 
 

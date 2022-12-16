@@ -72,7 +72,6 @@ for Np in 500 400 300 200 150 100 80 50;do
 
 						  cd $rundir
 
-						  #$wrapper python -u $current_dir/run_simulation.py 
 						  sbatch --job-name $jobname run-all.sbatch
 
 						  cd -

@@ -2,24 +2,24 @@
 #input_general
 
 fileprefix:
-gpu: 0
-choice_initialdistribution: 2
+gpu: 0           #0 if cpu, 1 if gpu
+choice_initialdistribution: 2    #if 1, regular cartesian and if 2, fibonacci
 lattice_dim:
 areafraction:
 simulationtype:
-sequence: sequential
-num_step: 10000001
+sequence: sequential #arrangement of the droplets: random/sequential/alternate
+num_step: 10000001  #no of HOOMD steps to run
 gammaA:
-gammapatch:
+gammapatch:     #gamma for binders
 seed:
 dumptime: 50
-analyzeperiod: 10000
+analyzeperiod: 10000 #dump frequency for the log files
 dt: 0.0005
 kT: 1.0
 dimension: 2
 r_buff: 1.5
-chain_link: True
-zerodynbondlength: False
+chain_link: True  #true for a dimer/trimer/polymer where droplets are to be connected using 1 bond from beginning, false for lattice where droplets are unconnected at start
+zerodynbondlength: False  #flag for whether dynamic bond length is 0 or is equal to 2*radius of binder
 
 ...
 

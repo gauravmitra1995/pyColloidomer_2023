@@ -94,7 +94,7 @@ dybond:
     r0: 
     rmax: 
     rmin: 
-    self_avoid_chain: 
+    self_avoid_chain:       #flag for self-avoiding, 1 if true
     temp_dep: 1
 
 ...

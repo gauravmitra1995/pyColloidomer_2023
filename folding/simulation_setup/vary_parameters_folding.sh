@@ -69,7 +69,6 @@ for Np in 200;do
 					
 						 cd $rundir
 
-						 $wrapper python -u $current_dir/run_simulation.py
 						 #sbatch --job-name $jobname run-all.sbatch
 
 						 cd -

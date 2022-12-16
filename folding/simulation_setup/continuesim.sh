@@ -12,7 +12,7 @@ koninit=200.0
 metropolis=1
 kspring=10.0
 
-kT=1.3 #run alternatively at high temp and then at low temp kT=1.0
+kT=1.3 #run alternatively at high temp and then again at low temp kT=1.0, continue this cycle for as many times as you want. Just set the right temperature every time before submitting a restart run. 
 
 for Np in 200;do
     for R in 20.0;do
@@ -57,7 +57,6 @@ for Np in 200;do
 
                                                  cd $rundir
 
-                                                 #$wrapper python -u $current_dir/run_simulation.py
                                                  sbatch --job-name $jobname run-all.sbatch
 
 

@@ -68,7 +68,7 @@
       kon_init:
       koff_init: 
       kon_melt: 0.0
-      self_avoid_chain: 
+      self_avoid_chain:     #flag for self-avoiding, 1 if true
       kspring: 
       r0: 
       Tmelt: 1.6

@@ -2,8 +2,8 @@
 #input_clusters
 
 ABC:
-  Np_per_sup:   
-  Nc: 
+  Np_per_sup:        #no of binders on each of these droplets
+  Nc:                #no of droplets with C type binders
 
 ABD: 
   Np_per_sup: 

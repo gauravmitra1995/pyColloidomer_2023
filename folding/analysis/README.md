@@ -1,7 +1,7 @@
 **Analysis for folding studies**
 
 
-**Information on content of folders:**
+**A) Information on content of folders:**
 
 *folding_singletrajectory_forpaper* contains the average valence data over simulation time for the specific condition and seed we ran those 15 alternate heating/cooling cycles for. Due to file upload size constraints, the gsd file could not be kept here as well. The sub-folder *logfiles_singletrajectory* contains all the temperature and timestep information for all of the 30 runs. 
 
@@ -11,7 +11,7 @@
 
 
 
-**Instructions and sequence for running the scripts to generate the figures used in main text and SI:**
+**B) Instructions and sequence for running the scripts to generate the figures used in main text and SI:**
 
 1.For each simulation condition, combine all gsd files into a single gsd file corresponding to succesive restart runs using: *bash job_combine_multipleruns*
 

@@ -48,7 +48,7 @@
 
 7.To get the final frames of the simulation trajectories and then unwrap them, do:
 
-*bash getfinalframegsd_unwrapped*
+*bash job_getfinalframegsd_unwrapped*
 
 8.Finally, to color the droplets (and their associated binders) as per the structure to which they belong / droplet valence, do:
 

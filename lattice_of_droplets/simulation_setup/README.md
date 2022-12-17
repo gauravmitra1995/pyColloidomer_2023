@@ -1,5 +1,7 @@
 **Simulation setup for studying assembly of lattice of droplets with binders**
 
+**(Assuming singularity is present inside ./../../dybond/)**
+
 
 **A) Information on the files:**
 

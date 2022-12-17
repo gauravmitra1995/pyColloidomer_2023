@@ -1,5 +1,7 @@
 **Simulation setup for dimer/trimer simulations**
 
+**(Assuming singularity is present inside ./../../dybond/)**
+
 
 **A) Information on the files:**
 

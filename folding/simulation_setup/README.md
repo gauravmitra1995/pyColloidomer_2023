@@ -1,5 +1,7 @@
 **Simulation setup for folding studies for chains**
 
+**(Assuming singularity is present inside ./../../dybond/)**
+
 
 **A) Information on the files:**
 

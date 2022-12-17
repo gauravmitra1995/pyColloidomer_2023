@@ -34,14 +34,14 @@ for Np in 200;do
 				   fi
 				     current_dir=$(pwd)
 				     dir=${current_dir}/${simulationtype}/gammaA${gammaA}_gammapatch${gammapatch}/Nclusters${Nclusters}/Np${Np}/R${R}/radiusB${rB}/kAB${kAB}/epsilon${epsilon}/dimension${dimension}/kspring${kspring}
-				    
+				     #seedlist="12197099"
 				     if [ -e $dir/seedlist.txt ];then
 				          seedlist=$($wrapper python -u extract_seeds.py --fileprefix $dir/seedlist.txt)			     
 				     fi
 
 				     echo $seedlist
                                      
-	
+                                     #for task in {1..1};do	
 				     for task in {1..300};do
                                                seed=`echo $seedlist | cut -d " " -f $task`
 

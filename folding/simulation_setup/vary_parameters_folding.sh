@@ -4,6 +4,7 @@ scriptdir=$(cd $(dirname $0);pwd)
 wrapper=$scriptdir/../../dybond/run-hoomd2.9.6.bash
 
 ntasks=300
+#ntasks=1  #make this 1 if running only a single trajectory
 
 #Very first run set up using this script
 
@@ -35,13 +36,19 @@ for Np in 200;do
                                    fi
                                    
                                    current_dir=$(pwd)
-				  
+
+                                  
+                                  #seedlist="12197099"  #this is the seed we ran the long single trajectory of 15 heat/cool cycles for. If running exactly for this one, then comment the next few lines below and un-comment this particular line
+
+				  #the next few lines generate random seeds for as many no of tasks as we indicate on top (say,300)
 	                          seedlist=""
 				  for ((x=1; x<=$ntasks; x++))
 				  do
 					  no=`od -vAn -N3 -tu < /dev/urandom`
 					  seedlist=`echo "$seedlist ${no}"`
 				  done
+
+
 
 
 				  dir=${current_dir}/${simulationtype}/gammaA${gammaA}_gammapatch${gammapatch}/Nclusters${Nclusters}/Np${Np}/R${R}/radiusB${rB}/kAB${kAB}/epsilon${epsilon}/dimension${dimension}/kspring${kspring}

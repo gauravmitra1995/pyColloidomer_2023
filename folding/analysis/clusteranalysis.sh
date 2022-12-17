@@ -52,13 +52,13 @@ current_dir=$(pwd)
 simulationtype='folding'
 dir=$scriptdir/../simulation_setup/${simulationtype}/gammaA${gammaA}_gammapatch${gammapatch}/Nclusters${Nclusters}/Np${Np}/R${R}/radiusB${radiusB}/kAB${kAB}/epsilon${epsilon}/dimension${dimension}/kspring${kspring}
 
+seedlist="12197099"
+#if [ -e $dir/seedlist.txt ];then
+        #seedlist=$($wrapper python -u extract_seeds.py --fileprefix $dir/seedlist.txt)
+#fi
 
-if [ -e $dir/seedlist.txt ];then
-        seedlist=$($wrapper python -u extract_seeds.py --fileprefix $dir/seedlist.txt)
-fi
-
-
-for task in {1..300};do
+for task in {1..1};do
+#for task in {1..300};do
    seed=`echo $seedlist | cut -d " " -f $task`
 
    trajectory_file=$scriptdir/../simulation_setup/${simulationtype}/gammaA${gammaA}_gammapatch${gammapatch}/Nclusters${Nclusters}/Np${Np}/R${R}/radiusB${radiusB}/kAB${kAB}/epsilon${epsilon}/dimension${dimension}/kspring${kspring}/seed${seed}/restlength${restlength}/${simulationtype}_restl${restlength}_Nc${Nclusters}_Np${Np}_R${R}_rB${radiusB}_kAB${kAB}_eps${epsilon}_dim${dimension}_kspring${kspring}_gammaA${gammaA}_gammapatch${gammapatch}_seed${seed}.allruns.gsd

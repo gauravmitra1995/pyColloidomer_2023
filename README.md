@@ -1,6 +1,6 @@
-#Manuscript: **A Coarse-Grained Simulation Model for Self-Assembly of Liquid Droplets Featuring Explicit Mobile Binders**  **(SUBMITTED)**
+#Manuscript: A Coarse-Grained Simulation Model for Self-Assembly of Liquid Droplets Featuring Explicit Mobile Binders (SUBMITTED)
 
-#Authors: **Gaurav Mitra, Chuan Chang, Angus McMullen, Daniela Puchall, Jasna Brujic, and Glen M. Hocky**
+Authors: **Gaurav Mitra, Chuan Chang, Angus McMullen, Daniela Puchall, Jasna Brujic, and Glen M. Hocky**
 
 
 This repository contains the python framework for performing MD simulations to study self-assembly of droplets with mobile binders.

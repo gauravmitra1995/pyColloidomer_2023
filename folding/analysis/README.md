@@ -24,9 +24,7 @@ Then unwrap the trajectory and also bring the droplets to the center of the simu
 
 Then copy this unwrapped trajectory file to the folder *folding_singletrajectory_forpaper*.
 
-*scriptdir=$(cd $(dirname $0);pwd)*
-
-*wrapper=$scriptdir/../../dybond/run-hoomd2.9.6.bash*
+*wrapper=./../../dybond/run-hoomd2.9.6.bash*
 
 Then do the average valence analysis on this trajectory file by doing: *bash averagevalenceanalysis_jobs_submit* and copy the generated average valence data to the folder *folding_singletrajectory_forpaper*. 
 
@@ -50,20 +48,19 @@ For each of the seeds, perform the valence analysis on the combined trajectory f
 
 This data will be saved in the *valence_data* folder. Then do:
 
-*scriptdir=$(cd $(dirname $0);pwd)*
-
-*wrapper=$scriptdir/../../dybond/run-hoomd2.9.6.bash*
+*wrapper=./../../dybond/run-hoomd2.9.6.bash*
 
 *$wrapper python histogram_structuresformed.py*
 
 
 4.Finally, to generate the plot of the number of bonds of C-C and D-D types between adhesion patches of adjacent droplets with simulation time (Fig.S9),do:
 
-*scriptdir=$(cd $(dirname $0);pwd)*
-
-*wrapper=$scriptdir/../../dybond/run-hoomd2.9.6.bash*
+*wrapper=./../../dybond/run-hoomd2.9.6.bash*
 
 *$wrapper python bindersinpatches_analysis.py --trajectory_file [....]*
 
 #(example trajectory_file: ./folding_singletrajectory_forpaper/folding_restl2.0_Nc7_Np200_R20.0_rB1.0_kAB200.0_eps4.6_dim2_kspring10.0_gammaA0.1_gammapatch0.0001_seed12197099.allruns.unwrap.gsd)
+
+
+**(Note: The wrapper script will work only when the singularity files are present inside the folder *./../../dybond/singularity*.)**
 

@@ -22,9 +22,7 @@
 
 4.To generate the saturation fraction data required for plotting the heat maps as well as to do the curve fitting for the fraction vs time curves, do:
 
-*scriptdir=$(cd $(dirname $0);pwd)*
-
-*wrapper=$scriptdir/../../dybond/run-hoomd2.9.6.bash*
+*wrapper=./../../dybond/run-hoomd2.9.6.bash*
 
 
 *$wrapper python unbondedpatches_vs_time_varyRandeps.py --Nclusters 2 --Np 100* 
@@ -38,9 +36,7 @@
 
 5.To generate the heat maps in Fig.3 and Fig.S2, do:
 
-*scriptdir=$(cd $(dirname $0);pwd)*
-
-*wrapper=$scriptdir/../../dybond/run-hoomd2.9.6.bash*
+*wrapper=./../../dybond/run-hoomd2.9.6.bash*
 
 
 *$wrapper python saturationfraction_varyingRandeps.py --Nclusters 2 --Np 100*
@@ -56,7 +52,7 @@
 
 The final snapshots of dimers/trimer runs shown in Fig.4 of the main text could be generated after performing this step. 
 
-
+**(Note: The wrapper script will work only when the singularity files are present inside the folder *./../../dybond/singularity*.)**
 
 
 

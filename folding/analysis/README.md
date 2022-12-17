@@ -1,7 +1,6 @@
 **Analysis for folding studies**
 
 
-
 **Information on content of folders:**
 
 *folding_singletrajectory_forpaper* contains the average valence data over simulation time for the specific condition and seed we ran those 15 alternate heating/cooling cycles for. Due to file upload size constraints, the gsd file could not be kept here as well. The sub-folder *logfiles_singletrajectory* contains all the temperature and timestep information for all of the 30 runs. 
@@ -15,6 +14,7 @@
 **Instructions and sequence for running the scripts to generate the figures used in main text and SI:**
 
 1.For each simulation condition, combine all gsd files into a single gsd file corresponding to succesive restart runs using: *bash job_combine_multipleruns*
+
 
 2.To generate the temperature vs simulation time plot (also showing the variation of average valence) for the single long trajectory of 15 heating/cooling cycles (shown in Fig.7a, do:
 
@@ -30,15 +30,23 @@ Then copy this unwrapped trajectory file to the folder *folding_singletrajectory
 
 Then do the average valence analysis on this trajectory file by doing: *bash averagevalenceanalysis_jobs_submit* and copy the generated average valence data to the folder *folding_singletrajectory_forpaper*. 
 
+Also copy all the log files to *folding_singletrajectory_forpaper/logfiles_singletrajectory*.
+
+**(above steps are required only if one wishes to reproduce the trajectory and redo the analysis again)**
+
+
+The average valence data as well as the log files are already present in *folding_singletrajectory_forpaper*, so one can skip all the above steps and directly do as below:
+
 *$wrapper python temperature_and_avgvalence_vs_time.py --fileprefix [....]*   
 
 #(example fileprefix: ./folding_singletrajectory_forpaper/folding_restl2.0_Nc7_Np200_R20.0_rB1.0_kAB200.0_eps4.6_dim2_kspring10.0_gammaA0.1_gammapatch0.0001_seed12197099) 
+
 
 3.To generate the histogram of populations of folded structures (Fig.7b), do:
 
 For each of the seeds, perform the valence analysis on the combined trajectory file to get the valence data for all 7 droplets over the simulation time. 
 
-*bash 
+*bash linkageanalysis_jobs_submit* 
 
 This data will be saved in the *valence_data* folder. Then do:
 
@@ -47,4 +55,15 @@ This data will be saved in the *valence_data* folder. Then do:
 *wrapper=$scriptdir/../../dybond/run-hoomd2.9.6.bash*
 
 *$wrapper python histogram_structuresformed.py*
+
+
+4.Finally, to generate the plot of the number of bonds of C-C and D-D types between adhesion patches of adjacent droplets with simulation time (Fig.S9),do:
+
+*scriptdir=$(cd $(dirname $0);pwd)*
+
+*wrapper=$scriptdir/../../dybond/run-hoomd2.9.6.bash*
+
+*$wrapper python bindersinpatches_analysis.py --trajectory_file [....]*
+
+#(example trajectory_file: ./folding_singletrajectory_forpaper/folding_restl2.0_Nc7_Np200_R20.0_rB1.0_kAB200.0_eps4.6_dim2_kspring10.0_gammaA0.1_gammapatch0.0001_seed12197099.allruns.unwrap.gsd)
 

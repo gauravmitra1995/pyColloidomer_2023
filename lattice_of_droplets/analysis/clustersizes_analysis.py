@@ -12,34 +12,6 @@ def countX(lst, x):
             count = count + 1
     return count
 
-def get_clustering(cluster_bondtable_new):
-    topo=cluster_bondtable_new
-    l=len(topo)
-    q=[]
-    q=topo
-
-    output = []
-    while len(q)>0:
-        first, *rest = q
-        first = set(first)
-
-        lf = -1
-        while len(first)>lf:
-            lf = len(first)
-
-            rest2 = []
-            for r in rest:
-                if len(first.intersection(set(r)))>0:
-                    first |= set(r)
-                else:
-                    rest2.append(r)
-            rest = rest2
-
-        output.append(sorted(list(first)))
-        q = rest
-    
-    return(output)
-
 parser=argparse.ArgumentParser()
 parser.add_argument("--trajectory_file",type=str)
 parser.add_argument("--minframe",default=0,type=int)

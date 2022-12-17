@@ -14,6 +14,8 @@ import pandas as pd
 from numpy.lib.stride_tricks import sliding_window_view
 sns.set_context("poster", font_scale=1.0)
 
+
+#https://stackoverflow.com/questions/4842613/merge-lists-that-share-common-elements
 def get_clustering(cluster_bondtable_new):
     topo=cluster_bondtable_new
     l=len(topo)

@@ -5,6 +5,7 @@ Authors:
 **Gaurav Mitra, Chuan Chang, Angus McMullen, Daniela Puchall, Jasna Brujic, and Glen M. Hocky**
 
 
+
 This repository contains the python framework for performing MD simulations to study self-assembly of droplets with mobile binders.
 
 We have three main folders/directories for the 3 types of simulations we perform:

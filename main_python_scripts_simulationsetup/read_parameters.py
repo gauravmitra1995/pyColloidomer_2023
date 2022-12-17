@@ -36,7 +36,12 @@ def spherical2cart(rho,theta,phi):
     z=rho*np.cos(phi)
     return [x,y,z]
 
-def sphere_fibonacci_grid_points ( ng,r0AB,r0AC ):   #THE MORE AUTHENTIC ALGORITHM!!!!
+#https://doi.org/10.1256/qj.05.227
+#Richard Swinbank, James Purser,
+#Fibonacci grids: A novel approach to global modelling,
+#Quarterly Journal of the Royal Meteorological Society,
+#Volume 132, Number 619, July 2006 Part B, pages 1769-1793.
+def sphere_fibonacci_grid_points ( ng,r0AB,r0AC ):   
 
   phi = ( 1.0 + np.sqrt ( 5.0 ) ) / 2.0
 

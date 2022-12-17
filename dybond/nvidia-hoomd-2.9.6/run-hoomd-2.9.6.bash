@@ -2,9 +2,6 @@
 
 scriptdir=$(cd $(dirname $0);pwd)
 
-#Make sure singularity is in the path
-export PATH=/share/apps/singularity/bin:$PATH
-
 args=''
 for i in "$@"; do
     i="${i//\\/\\\\}"

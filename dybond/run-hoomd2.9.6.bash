@@ -1,8 +1,5 @@
 #!/bin/bash
 
-#Make sure singularity is in the path 
-export PATH=/share/apps/singularity/bin:$PATH
-
 scriptdir=$(cd $(dirname $0);pwd)
 
 args=''

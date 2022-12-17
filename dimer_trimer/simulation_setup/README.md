@@ -1,7 +1,7 @@
 **Simulation setup for dimer/trimer simulations**
 
 
-**Information on the files:**
+**A) Information on the files:**
 
 A hierarchy of folders will be created for each unique combination of simulation parameters we have and MD simulations will run inside the final folder of that hierarchy. All relevant simulation parameters are inside the files *input_general.yaml*, *input_clusters.yaml* and *input_particles.yaml* (also mentioned in Tables S3,S4 in the paper).
 
@@ -10,7 +10,7 @@ The bash script *vary_parameters_polymer.sh* and *continuesim.sh* takes in impor
 *run-all.sbatch* is the sbatch script for submitting jobs in queue to the HPC cluster.
 
 
-**Instructions:**
+**B) Instructions:**
 
 1.Copy the main simulation run scripts (5 of them) from the folder *main_python_scripts_simulationsetup* to here.
 

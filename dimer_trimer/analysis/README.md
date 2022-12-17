@@ -2,7 +2,7 @@
 
 
 
-**Information on content of folders:**
+**A) Information on content of folders:**
 
 *unbondedpatches_vs_time_data* contains data for fraction of total number of free available binders as a function of simulation time for all the different simulation conditions we have explored (mainly varying number of binders (Np), droplet radii (R) and binding affinity epsilon). Each of these data files are generated from averaging over the 10 seeds run for each condition. 
 
@@ -12,7 +12,7 @@
 
 
 
-**Instructions and sequence for running the scripts to generate the figures used in main text and SI:**
+**B) Instructions and sequence for running the scripts to generate the figures used in main text and SI:**
 
 1.For each simulation condition, combine all gsd files into a single gsd file corresponding to succesive restart runs using: *bash job_combine_multipleruns*
 

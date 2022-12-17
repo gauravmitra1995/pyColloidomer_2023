@@ -11,9 +11,13 @@ The folder *nvidia-hoomd-2.9.6* contains the script *DyBondUpdater.cc* which bas
 **Instructions for compilation of the dybond plugin (with singularity present)**
 
 1.Go to the folder *nvidia-hoomd-2.9.6*.
+
 2.Then do: *./run-hoomd-2.9.6.bash*
+
 3.Do: *bash compile.bash*
+
 4.If the dybond plugin compiles correctly, a file named *_dybond_plugin.so* will be generated inside *nvidia-hoomd-2.9.6*.
+
 5.The wrapper script to finally use for running simulations or performing analyses is: *run-hoomd2.9.6.bash* present inside the folder *dybond*.
 
 

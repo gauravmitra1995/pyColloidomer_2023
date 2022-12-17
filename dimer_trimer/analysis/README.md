@@ -20,7 +20,7 @@
 
 3.This will generate data for each condition separately for each of the seeds run. In order to average the data over all the seeds run for a particular simulation condition, do: *bash job_averageallseeds*
 
-4.To generate the saturation fraction data required for plotting the heat maps as well as to do the curve fitting for the fraction vs time curves, do:
+4.To generate the saturation fraction data required for plotting the heat maps as well as to do the curve fitting for the fraction vs time curves (Fig S1), do:
 
 *wrapper=./../../dybond/run-hoomd2.9.6.bash*
 

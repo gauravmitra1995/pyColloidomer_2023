@@ -18,22 +18,7 @@
 
 2.To generate the temperature vs simulation time plot (also showing the variation of average valence) for the single long trajectory of 15 heating/cooling cycles (shown in Fig.7a, do:
 
-First generate the single trajectory file by running the simulation in the *simulation_setup* folder. 
-
-Then unwrap the trajectory and also bring the droplets to the center of the simulation box by doing *bash job_unwrapping*.
-
-Then copy this unwrapped trajectory file to the folder *folding_singletrajectory_forpaper*.
-
-*wrapper=./../../dybond/run-hoomd2.9.6.bash*
-
-Then do the average valence analysis on this trajectory file by doing: *bash averagevalenceanalysis_jobs_submit* and copy the generated average valence data to the folder *folding_singletrajectory_forpaper*. 
-
-Also copy all the log files to *folding_singletrajectory_forpaper/logfiles_singletrajectory*.
-
-**(above steps are required only if one wishes to reproduce the trajectory and redo the analysis again)**
-
-
-The average valence data as well as the log files are already present in *folding_singletrajectory_forpaper*, so one can skip all the above steps and directly do as below:
+The average valence data as well as the log files for the single long trajectory are already present in *folding_singletrajectory_forpaper*, so one can directly do as below:
 
 *$wrapper python temperature_and_avgvalence_vs_time.py --fileprefix [....]*   
 

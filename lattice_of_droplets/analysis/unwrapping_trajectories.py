@@ -77,7 +77,6 @@ for f in range(len(frames_list)):
     for i in range(num_particles):
         center_position=np.array(system.particles.position[i])
         if(system.particles.typeid[i]!=0):
-            #Aparticle=A_tags_list[int(i//(2*Np+1))]
             Aparticle=A_tags_list[find_cluster1(A_tags_list,i)]
             for d in range(3):
                 if(center_position[d]-system.particles.position[Aparticle][d]>(box_size[d]/2)):

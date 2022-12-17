@@ -22,7 +22,7 @@ l=len(trajectory)
 print("No of frames: ",l)
 
 basename=os.path.basename(fileprefix)
-singleframe_file='finalframes/'+str(basename)+'.finalframe.gsd'
+singleframe_file=str(os.getcwd())+'/../simulation_setup/finalframes/'+str(basename)+'.finalframe.gsd'
 
 system=hoomd.init.read_gsd(trajectory_file,frame=framenumber)
 all = hoomd.group.all()

@@ -1,7 +1,7 @@
 **Simulation setup for studying assembly of lattice of droplets with binders**
 
 
-**Information on the files:**
+**A) Information on the files:**
 
 A hierarchy of folders will be created for each unique combination of simulation parameters we have and MD simulations will run inside the final folder of that hierarchy. All relevant simulation parameters are inside the files *input_general_lattice.yaml*, *input_clusters_lattice.yaml* and *input_particles.yaml* (also mentioned in Tables S3,S5 in the paper).
 
@@ -12,7 +12,7 @@ The bash script *vary_parameters_lattice.sh* and *continuesim.sh* takes in impor
 *finalframes* is a folder containing the final frames from the combined gsd files (all the successive runs for a given simulation condition). The final frame files ending with "coloring_by_structure.gsd" were used to prepare the snapshots shown in Fig. 5 of the main text and supplemental figures S6 and S7.
 
 
-**Instructions:**
+**B) Instructions:**
 
 1.Copy the main simulation run scripts (5 of them) from the folder *main_python_scripts_simulationsetup* to here.
 

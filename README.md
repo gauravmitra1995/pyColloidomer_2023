@@ -1,5 +1,3 @@
-# pyColloidomer_2022
-
 #Manuscript: **A Coarse-Grained Simulation Model for Self-Assembly of Liquid Droplets Featuring Explicit Mobile Binders**  **(SUBMITTED)**
 
 #Authors: **Gaurav Mitra, Chuan Chang, Angus McMullen, Daniela Puchall, Jasna Brujic, and Glen M. Hocky**

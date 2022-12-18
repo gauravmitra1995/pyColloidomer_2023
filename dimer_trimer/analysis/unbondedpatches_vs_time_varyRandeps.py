@@ -115,7 +115,7 @@ def generate_plots_and_data(Nclusters,r0,kAB,radiusB,dimension,kspring,gammaA,ga
             p=ax.plot(timelist[::5],meanfractionlist[::5],marker='.',markersize=18,color=colors[r],label=r'$R = $'+str(label[0]))
 
             #calculate the saturation fraction of unbonded binders according to the regime of epsilon (do double exponential fitting for high epsilon) 
-            if(eps>=13.8):
+            if(eps>=10):
                 sat,truesat,recruitment_time,patchsaturationtime,function=fit_double_exponential(meanfractionlist,timelist)
                 if(sat>=0.0 and sat<=1.0 and np.abs(sat-truesat)<=0.1):
                     saturationfractionlist.append(np.round(sat,4))
@@ -129,7 +129,7 @@ def generate_plots_and_data(Nclusters,r0,kAB,radiusB,dimension,kspring,gammaA,ga
 
 
             #plot the fitting functions according to the regime of epsilon 
-            if(eps>=13.8):
+            if(eps>=10):
                 ax.plot(timelist,function,color=p[0].get_color(),linewidth=5.0)
             else:
                 ax.plot(timelist[10:],np.ones(timelist[10:].shape[0])*sat,color=p[0].get_color(),linewidth=5.0)

@@ -2,6 +2,10 @@ This folder contains the code for dynamic binding / unbinding between particles.
 
 **(Singularity files have to be present inside the folder *dybond/singularity/* for the compilation of the plugin to work properly!!!!)**
 
+**Download the singularity files from here:**
+
+https://drive.google.com/file/d/15vH54mzLhiscVWF9_P6IRNhIRQntYn3Q/view?usp=sharing
+
 
 **Information about important files in this folder**
 

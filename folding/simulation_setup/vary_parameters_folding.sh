@@ -76,7 +76,7 @@ for Np in 200;do
 					
 						 cd $rundir
 
-						 #sbatch --job-name $jobname run-all.sbatch
+                        		         sbatch --job-name $jobname run-all.sbatch
 
 						 cd -
 				               done

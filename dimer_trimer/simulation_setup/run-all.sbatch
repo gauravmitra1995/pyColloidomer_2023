@@ -18,7 +18,9 @@ current_dir=$(pwd)
 host=$(env - hostname -s)
 exe=run_simulation.py
 
-scriptdir=$(cd $(dirname $0);pwd)
-wrapper=$scriptdir/../../dybond/run-hoomd2.9.6.bash
+#Modify the PATH leading upto the pyColloidomer_2022 folder, as needed
+basedir=/scratch/projects/hockygroup/data-share/pyColloidomer_2022
+
+wrapper=$basedir/dybond/run-hoomd2.9.6.bash
 $wrapper python -u $basedir/dimer_trimer/simulation_setup/${exe}
 

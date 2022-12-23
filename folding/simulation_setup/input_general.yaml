@@ -2,7 +2,7 @@
 #input_general
 
 fileprefix:
-gpu: 0           #0 if cpu, 1 if gpu
+gpu: 1          #0 if cpu, 1 if gpu
 choice_initialdistribution: 2    #if 1, regular cartesian and if 2, fibonacci
 lattice_dim:
 areafraction:

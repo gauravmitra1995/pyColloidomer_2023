@@ -17,7 +17,7 @@ kspring=10.0
 for Np in 100;do
     for R in 50.0;do
            for rB in 1.0;do	    
-              for Nclusters in 81;do
+	      for Nclusters in 81;do
 		 for areafraction in 0.4 0.3 0.2 0.1;do
 			for koffinit in 0.0000001 0.0001 0.01;do
                                   if [ $koffinit -eq 0 ];then
@@ -50,11 +50,13 @@ for Np in 100;do
 			          else
 					  echo -n $seedlist > $dir/seedlist.txt
 			          fi
-                                  
+                                 
+				  echo $dir
+				  
                                   for seed in $seedlist;do
 
 					        for zerodynbondlength in 'False';do
-
+                                                        
 							rundir=$($wrapper python -u update_yaml_lattice.py --Np $Np --R $R --radiusB $rB --simulationtype $simulationtype --Nclusters $Nclusters --areafraction $areafraction --seed $seed --koninit $koninit --koffinit $koffinit --gammaA $gammaA --gammapatch $gammapatch --kspring $kspring --metropolis $metropolis --zerodynbondlength $zerodynbondlength | tail -n 1)
 
 							echo "rundir=$rundir"

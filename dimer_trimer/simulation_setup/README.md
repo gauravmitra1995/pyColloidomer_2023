@@ -16,7 +16,7 @@ The bash script *vary_parameters_polymer.sh* and *continuesim.sh* takes in impor
 
 1.Copy the main simulation run scripts (5 of them) from the folder *main_python_scripts_simulationsetup* to here.
 
-2.Change/update the parameters inside the bash scripts if needed. If simulation is to be run on CPU, set "gpu" to 0 in the *input_general.yaml* file, otherwise for gpu runs, set it to 1. Also check the values forno of steps to run: "num_step", timestep: "dt" and other such relevant parameters in the yaml files before submitting a job.
+2.Change/update the parameters inside the bash scripts if needed. If simulation is to be run on CPU, set "gpu" to 0 in the *input_general.yaml* file, otherwise for gpu runs, set it to 1. Also check the values forno of steps to run: "num_step", timestep: "dt" and other such relevant parameters in the yaml files before submitting a job. Modify the path of the base directory *pyColloidomer_2022* in the *run-all.sbatch* script before starting a simulation.
 
 3.To run a simulation for the first time, do *bash vary_parameters_polymer.sh*.
   

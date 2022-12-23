@@ -13,13 +13,12 @@ gammaA:
 gammapatch:     #gamma for binders
 seed:
 dumptime: 100
-analyzeperiod: 1000 #dump frequency for the log files
+analyzeperiod: 1000   #dump frequency for the log files
 dt: 0.001
 kT: 1.0
 dimension: 2
 r_buff: 1.5
-chain_link: False  #true for a dimer/trimer/polymer where droplets are to be connected using 1 bond from beginning, false for lattice where droplets are unconnected at start
-zerodynbondlength: False  #flag for whether dynamic bond length is 0 or is equal to 2*radius of binder
-
+chain_link: False   #true for a dimer/trimer/polymer where droplets are to be connected using 1 bond from beginning, false for lattice where droplets are unconnected at start
+zerodynbondlength: False    #flag for whether dynamic bond length is 0 or is equal to 2*radius of binder
 ...
 

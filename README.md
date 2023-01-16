@@ -26,6 +26,8 @@ The dynamic binding/unbinding code is in the folder *dybond*.
 
  https://drive.google.com/file/d/15vH54mzLhiscVWF9_P6IRNhIRQntYn3Q/view?usp=sharing
 
+**After downloading the singularity files (present as a zip file in the link above), unzip them and save the files individually in the folder *dybond/singularity/* before running anything else.**
+
 
 
 Each folder for the 3 types of simulations contains an *analysis* folder and a *simulation_setup* folder. In addition, there is a folder named *main_python_scripts_simulationsetup* outside of all these folders which contains the 5 main .py scripts which can read in parameters from yaml files, set up the system and run the MD simulations by calling the Dynamic Bond Updater.

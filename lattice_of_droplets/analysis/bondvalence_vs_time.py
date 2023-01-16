@@ -50,17 +50,17 @@ prop_cycle = plt.rcParams['axes.prop_cycle']
 colors = prop_cycle.by_key()['color']
 
 
-fig,ax=plt.subplots(figsize=(20,15),dpi=100)
+fig,ax=plt.subplots(figsize=(25,18),dpi=100)
 for i in range(valences.size):
-    plt.plot(timelist,np.array(fraction_allframes_allvalences)[i],color=colors[i],marker='o',markersize=12.0,linewidth=5.0,label=r'$B_{n}  = $'+str(valences[i]))
-plt.xlabel('Simulation time in HOOMD units',labelpad=20,fontsize=60)
-plt.ylabel('Fraction of droplets',labelpad=20,fontsize=60)
-plt.legend(loc='upper right',ncol=2,prop={'size': 40})
+    plt.plot(timelist,np.array(fraction_allframes_allvalences)[i],color=colors[i],marker='o',markersize=15.0,linewidth=8.0,label=r'$B_{n}  = $'+str(valences[i]))
+plt.xlabel('Simulation time in HOOMD units',labelpad=20,fontsize=90)
+plt.ylabel('Fraction of droplets',labelpad=20,fontsize=90)
+plt.legend(loc='upper right',ncol=2,prop={'size': 80},fontsize=80)
 for axis in ['top','bottom','left','right']:
-    ax.spines[axis].set_linewidth(5)
-ax.tick_params(labelsize=50,axis='both', which='major', pad=20)
-plt.yticks(fontsize=50)
-plt.xticks(fontsize=50)
+    ax.spines[axis].set_linewidth(8)
+ax.tick_params(labelsize=80,axis='both', which='major', length=20, width=10, pad=20)
+plt.yticks(np.arange(0,1.1,0.2),fontsize=80,fontweight='medium')
+plt.xticks(np.arange(0,100000,30000),fontsize=80,fontweight='medium')
 fig.tight_layout()
 plt.savefig('final_figures/bondvalence_vs_time_Np'+str(Np)+'_R'+str(R)+'_areafrac'+str(areafraction)+'_gammaA'+str(gammaA)+'_eps'+str(epsilon)+'.png',bbox_inches='tight')
 plt.close()

@@ -45,10 +45,8 @@ mean_fractions_allchainsizes=data[1]
 stddev_fractions_allchainsizes=data[2]
 
 #Plotting the chain length distributions:
-fig,ax=plt.subplots(figsize=(20,15),dpi=100)
+fig,ax=plt.subplots(figsize=(25,18),dpi=100)
 plt.bar(chainsizes,mean_fractions_allchainsizes,yerr=stddev_fractions_allchainsizes,width = 1,color='royalblue',linewidth=7.0,error_kw={'elinewidth':8.0},ecolor="black",edgecolor="black",capsize=12)
-plt.xticks(chainsizes,fontsize=50)
-plt.yticks(fontsize=50)
 
 #fit to exponential function:
 a=mean_fractions_allchainsizes[0]
@@ -60,13 +58,14 @@ a=popt[0]
 b=popt[1]
 c=popt[2]
 
-#plt.plot(chainsizes,func(chainsizes,*popt),linestyle='--',color='navy',linewidth=8.0)
-ax.set_xlabel('Linear chain lengths '+r'$(N)$',labelpad=15,fontsize=70)
-ax.set_ylabel(r'$P(N)$',labelpad=15,fontsize=70)
+#plt.plot(chainsizes,func(chainsizes,*popt),linestyle='--',color='navy',linewidth=10.0)
+ax.set_xlabel('Linear chain lengths '+r'$(N)$',labelpad=20,fontsize=90)
+ax.set_ylabel(r'$P(N)$',labelpad=20,fontsize=100)
 for axis in ['top','bottom','left','right']:
-    ax.spines[axis].set_linewidth(5)
-ax.tick_params(labelsize=50,axis='both', which='major', pad=20)
-plt.xticks(np.arange(3,np.max(chainsizes)+1,2))
+    ax.spines[axis].set_linewidth(8)
+ax.tick_params(labelsize=80,axis='both', which='major', length=20, width=10, pad=20)
+plt.xticks(np.arange(3,np.max(chainsizes)+1,2),fontsize=80,fontweight='medium')
+plt.yticks(np.arange(0,np.max(mean_fractions_allchainsizes)+0.1,0.1),fontsize=80,fontweight='medium')
 fig.tight_layout()
 plt.savefig('final_figures/histogram_chainlengths_Np'+str(Np)+'_R'+str(R)+'_areafrac'+str(areafraction)+'_gammaA'+str(gammaA)+'_eps'+str(epsilon)+'.png',bbox_inches='tight')
 plt.close()

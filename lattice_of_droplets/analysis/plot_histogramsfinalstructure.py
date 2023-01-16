@@ -37,9 +37,9 @@ data=np.load(filename,allow_pickle=True)
 structures=data[0]
 fractions=data[1]
 
-structures=['monomers','dimers','chains','loops','other']
+structures=['monomer','dimer','chain','loop','other']
 
-fig,ax=plt.subplots(figsize=(20,15),dpi=100)
+fig,ax=plt.subplots(figsize=(25,18),dpi=100)
 plt.bar(structures, fractions, width=0.5,color=['darkgreen','crimson','darkmagenta','gold','turquoise'],edgecolor='black',linewidth=7.0)
 
 """
@@ -49,18 +49,19 @@ patch3 = mpatches.Patch(color='indigo', label='chains')
 patch4 = mpatches.Patch(color='yellow', label='loops')
 patch5 = mpatches.Patch(color='cyan',label='other')
 """
-plt.xlabel('Structures formed',labelpad=20,fontsize=60)
-plt.ylabel('Fraction of droplets',labelpad=20,fontsize=60)
+plt.xlabel('Structures formed',labelpad=20,fontsize=90)
+plt.ylabel('Fraction of droplets',labelpad=20,fontsize=90)
 for axis in ['top','bottom','left','right']:
-    ax.spines[axis].set_linewidth(5)
-ax.tick_params(labelsize=50,axis='both', which='major', pad=20)
-plt.yticks(fontsize=50)
-plt.xticks(fontsize=50)
+    ax.spines[axis].set_linewidth(8)
+ax.tick_params(labelsize=80,axis='both', which='major', length=20, width=10, pad=20)
+plt.yticks(np.arange(0,np.max(fractions)+0.1,0.1),fontsize=80,fontweight='medium')
+plt.xticks(fontsize=75,fontweight='medium')
 #text="Key for structures"
 #plt.legend(loc='best',title=text,title_fontsize=50,handles=[patch1,patch2,patch3,patch4,patch5],prop={'size':50},ncol=2)
 fig.tight_layout()
 plt.savefig('final_figures/histogram_structures_Np'+str(Np)+'_R'+str(R)+'_areafrac'+str(areafraction)+'_gammaA'+str(gammaA)+'_eps'+str(epsilon)+'.png',bbox_inches='tight')
 plt.close()
+
 
 
 

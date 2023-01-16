@@ -50,12 +50,10 @@ wrapper=$scriptdir/../../dybond/run-hoomd2.9.6.bash
 
 $wrapper python -u  bondvalence_vs_time.py --Nclusters $Nclusters --R $R --radiusB $radiusB --Np $Np --areafraction $areafraction --epsilon $epsilon --gammaA $gammaA --gammapatch $gammapatch --kspring $kspring --restlength $restlength 
 
-$wrapper python -u  clusterstructures_vs_time.py --Nclusters $Nclusters --R $R --radiusB $radiusB --Np $Np --areafraction $areafraction --epsilon $epsilon --gammaA $gammaA --gammapatch $gammapatch --kspring $kspring --restlength $restlength
-
 $wrapper python -u plot_histogramsfinalframevalences.py --Nclusters $Nclusters --R $R --radiusB $radiusB --Np $Np --areafraction $areafraction --epsilon $epsilon --gammaA $gammaA --gammapatch $gammapatch --kspring $kspring --restlength $restlength
 
 $wrapper python -u plot_histogramsfinalstructure.py  --Nclusters $Nclusters --R $R --radiusB $radiusB --Np $Np --areafraction $areafraction --epsilon $epsilon --gammaA $gammaA --gammapatch $gammapatch --kspring $kspring --restlength $restlength
 
-$wrapper python -u plot_histogramofchainlengths.py  --Nclusters $Nclusters --R $R --radiusB $radiusB --Np $Np --areafraction $areafraction --epsilon $epsilon --gammaA $gammaA --gammapatch $gammapatch --kspring $kspring --restlength $restlength
+#$wrapper python -u plot_histogramofchainlengths.py  --Nclusters $Nclusters --R $R --radiusB $radiusB --Np $Np --areafraction $areafraction --epsilon $epsilon --gammaA $gammaA --gammapatch $gammapatch --kspring $kspring --restlength $restlength
 
 

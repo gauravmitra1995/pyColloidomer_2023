@@ -4,7 +4,7 @@ This folder contains 5 scripts:
 
 1.*read_parameters.py* reads in  parameters from the yaml files, defines important functions to assign important system parameters.
 
-2.*interactions.py* defines a function to setup the tabulated soft quartic potential in HOOMD.
+2.*interactions.py* defines a function to setup the tabulated soft potential in HOOMD.
 
 3.*clustermaker.py* designs each droplet coated with droplets, assigns the positions and physical attributes of the binders, creates bonds and angle terms between droplet and binders.
 

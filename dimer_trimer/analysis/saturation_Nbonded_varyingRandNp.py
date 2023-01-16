@@ -97,7 +97,7 @@ def get_heatmaps(Nclusters,r0,kAB,radiusB,dimension,kspring,gammaA,gammapatch,cl
     im=plt.pcolormesh(X,Y,Z,cmap='viridis')    
 
     ax.autoscale_view()
-    ax.set_xlabel(r'$R_{droplet}$',fontsize=60)
+    ax.set_xlabel(r'$R_{\mathrm{droplet}}$',fontsize=60)
     ax.set_ylabel(r'$N_{b}$',fontsize=60)
 
     ax.autoscale_view()
@@ -117,7 +117,7 @@ def get_heatmaps(Nclusters,r0,kAB,radiusB,dimension,kspring,gammaA,gammapatch,cl
     cb.ax.tick_params(labelsize=50)
     plt.xticks(fontsize=50)
     plt.yticks(fontsize=50)
-    cb.set_label(r'${N_{bonded}}^{t=\infty}$',labelpad=+15,fontsize=100)
+    cb.set_label(r'${N_{\mathrm{bonded}}}^{t=\infty}$',labelpad=+15,fontsize=100)
     fig.tight_layout()
     plt.savefig('final_figures/Nclusters'+str(Nclusters)+'_clusterid'+str(clusterid)+'_RandNpheatmap_Nbondedatsaturation.png',bbox_inches='tight')
     plt.close()

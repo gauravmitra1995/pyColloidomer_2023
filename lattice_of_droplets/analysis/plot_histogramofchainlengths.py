@@ -9,6 +9,7 @@ import sys
 import seaborn as sns
 sns.set_context("poster", font_scale=1.0)
 import argparse
+import pandas as pd
 from functions_cluster_analysis import *
 from scipy.optimize import curve_fit
 
@@ -44,11 +45,17 @@ chainsizes=data[0]
 mean_fractions_allchainsizes=data[1]
 stddev_fractions_allchainsizes=data[2]
 
-#Plotting the chain length distributions:
+#Load experimental chain length data from .csv file (for concentration of DNA = 0.3 pmol, McMullen et al. PRL 2018, Fig 3(a))
+csvfile=str(os.getcwd())+'/expt_data_PRL2018/chainlength_data_PRL2018.csv'
+df = pd.read_csv(csvfile,delimiter=' ')
+chainsizes_expt=df.iloc[:, 0].tolist()
+fractions_expt=df.iloc[:, 1].tolist()
+
+#Plotting the chain length distributions from simulation:
 fig,ax=plt.subplots(figsize=(25,18),dpi=100)
 plt.bar(chainsizes,mean_fractions_allchainsizes,yerr=stddev_fractions_allchainsizes,width = 1,color='royalblue',linewidth=7.0,error_kw={'elinewidth':8.0},ecolor="black",edgecolor="black",capsize=12)
 
-#fit to exponential function:
+#fit simulation data to exponential function:
 a=mean_fractions_allchainsizes[0]
 b=1/4
 c=0.0
@@ -58,7 +65,9 @@ a=popt[0]
 b=popt[1]
 c=popt[2]
 
-#plt.plot(chainsizes,func(chainsizes,*popt),linestyle='--',color='navy',linewidth=10.0)
+plt.plot(chainsizes,func(chainsizes,*popt),linestyle='--',color='navy',linewidth=10.0,label='Fit to Simulation')
+plt.plot(chainsizes_expt,fractions_expt,marker='s',markersize=40,linestyle='',markerfacecolor='none',markeredgecolor='k',label='Experiment',markeredgewidth=10.0)
+
 ax.set_xlabel('Linear chain lengths '+r'$(N)$',labelpad=20,fontsize=90)
 ax.set_ylabel(r'$P(N)$',labelpad=20,fontsize=100)
 for axis in ['top','bottom','left','right']:
@@ -66,6 +75,7 @@ for axis in ['top','bottom','left','right']:
 ax.tick_params(labelsize=80,axis='both', which='major', length=20, width=10, pad=20)
 plt.xticks(np.arange(3,np.max(chainsizes)+1,2),fontsize=80,fontweight='medium')
 plt.yticks(np.arange(0,np.max(mean_fractions_allchainsizes)+0.1,0.1),fontsize=80,fontweight='medium')
+plt.legend(loc='best',ncol=1,prop={'size': 75},fontsize=75)
 fig.tight_layout()
 plt.savefig('final_figures/histogram_chainlengths_Np'+str(Np)+'_R'+str(R)+'_areafrac'+str(areafraction)+'_gammaA'+str(gammaA)+'_eps'+str(epsilon)+'.png',bbox_inches='tight')
 plt.close()

@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 import glob 
 import sys
 import seaborn as sns
+import pandas as pd
 sns.set_context("poster", font_scale=1.0)
 import argparse
 
@@ -37,8 +38,15 @@ data=np.load(filename,allow_pickle=True)
 valences=data[0]
 fractions=data[1]
 
+#Load experimental valence data from .csv file (for concentration of DNA = 0.3 pmol, McMullen et al. PRL 2018 ,Fig 2(g))
+csvfile=str(os.getcwd())+'/expt_data_PRL2018/fraction_valence_data_PRL2018.csv'
+df = pd.read_csv(csvfile,delimiter=',')
+valences_expt=df['Valence'].tolist()
+fractions_expt=df['Fraction'].tolist()
+
 fig,ax=plt.subplots(figsize=(25,18),dpi=100)
 plt.bar(valences, fractions, width=0.5,color=['blue','darkorange','green','red','purple','brown'],edgecolor='black',linewidth=7.0)
+plt.plot(valences_expt,fractions_expt,marker='s',markersize=40,linestyle='',markerfacecolor='none',markeredgecolor='k',label='Experiment',markeredgewidth=7.0)
 plt.xlabel(r'$B_{n}$',labelpad=20,fontsize=100)
 plt.ylabel(r'$P(B_{n})|^{t=t^{\infty}}$',labelpad=20,fontsize=100)
 for axis in ['top','bottom','left','right']:
@@ -46,6 +54,7 @@ for axis in ['top','bottom','left','right']:
 ax.tick_params(labelsize=80,axis='both', which='major', length=20, width=10, pad=20)
 plt.yticks(np.arange(0,np.max(fractions)+0.1,0.1),fontsize=80,fontweight='medium')
 plt.xticks([0,1,2,3,4,5],fontsize=80,fontweight='medium')
+plt.legend(loc='best',ncol=1,prop={'size': 75},fontsize=75)
 fig.tight_layout()
 plt.savefig('final_figures/histogram_valences_Np'+str(Np)+'_R'+str(R)+'_areafrac'+str(areafraction)+'_gammaA'+str(gammaA)+'_eps'+str(epsilon)+'.png',bbox_inches='tight')
 plt.close()

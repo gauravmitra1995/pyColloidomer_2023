@@ -51,6 +51,16 @@ df = pd.read_csv(csvfile,delimiter=' ')
 chainsizes_expt=df.iloc[:, 0].tolist()
 fractions_expt=df.iloc[:, 1].tolist()
 
+"""
+#Load experimental chain length data from .csv file (McMullen et al. Nature 2022, Extended Data Fig 1)
+csvfile=str(os.getcwd())+'/expt_data_PRL2018/chainlength_data_Nature2022folding.csv'
+df = pd.read_csv(csvfile,delimiter=',')
+chainsizes_expt=df.iloc[:, 0].tolist()
+counts_expt=df.iloc[:, 1].tolist()
+total=np.sum(np.array(counts_expt))
+fractions_expt=np.around(np.array(counts_expt)/total,3)
+"""
+
 #Plotting the chain length distributions from simulation:
 fig,ax=plt.subplots(figsize=(25,18),dpi=100)
 plt.bar(chainsizes,mean_fractions_allchainsizes,yerr=stddev_fractions_allchainsizes,width = 1,color='royalblue',linewidth=7.0,error_kw={'elinewidth':8.0},ecolor="black",edgecolor="black",capsize=12)

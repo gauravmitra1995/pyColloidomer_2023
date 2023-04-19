@@ -7,7 +7,7 @@
 
 *valence_data* contains valence data for all 7 droplets over simulation time for the 300 different seeds we ran for the same condition (to quantify the populations of the folded structures obtained). Each of these data files corresponds to 5 heating/cooling cycles. 
 
-*final_figures* contain all the figures shown in Fig.7 and Fig.S9.
+*final_figures* contain all the figures shown in Fig.7 and Fig.S11.
 
 
 
@@ -22,7 +22,7 @@ The average valence data as well as the log files for the single long trajectory
 
 *$wrapper python temperature_and_avgvalence_vs_time.py --fileprefix [....]*   
 
-#(example fileprefix: ./folding_singletrajectory_forpaper/folding_restl2.0_Nc7_Np200_R20.0_rB1.0_kAB200.0_eps4.6_dim2_kspring10.0_gammaA0.1_gammapatch0.0001_seed12197099) 
+#(example fileprefix: ./folding_singletrajectory_forpaper/folding_restl2.0_Nc7_Np200_R20.0_rB1.0_kAB200.0_eps4.6_dim2_kspring10.0_gammaA0.1_gammapatch0.0001_seed12197099)
 
 
 3.To generate the histogram of populations of folded structures (Fig.7b), do:

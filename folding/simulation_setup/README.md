@@ -5,7 +5,7 @@
 
 **A) Information on the files:**
 
-A hierarchy of folders will be created for each unique combination of simulation parameters we have and MD simulations will run inside the final folder of that hierarchy. All relevant simulation parameters are inside the files *input_general.yaml*, *input_clusters.yaml* and *input_particles.yaml* (also mentioned in Tables S3,S6 in the paper).
+A hierarchy of folders will be created for each unique combination of simulation parameters we have and MD simulations will run inside the final folder of that hierarchy. All relevant simulation parameters are inside the files *input_general.yaml*, *input_clusters.yaml* and *input_particles.yaml* (also mentioned in Tables S5,S8 in the paper).
 
 The bash script *vary_parameters_folding.sh* and *continuesim.sh* takes in important parameters which need to be provided from outside by the user and overrides the default values in the yaml files, using the *update_yaml_folding.py* script. The bash scripts also help set up the run directories.
 

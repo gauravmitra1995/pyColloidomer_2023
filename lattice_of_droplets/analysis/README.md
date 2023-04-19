@@ -36,7 +36,7 @@
 
 *bash job_averageallseeds*
 
-5.Finally obtain the bond valence vs time plots shown in Fig.6a and Fig.S8, the histogram of bond valences at final frame shown in Fig.6b and Fig.S4, the histogram of final structures shown in Fig.6c and Fig.S3, and the histogram of chain lengths shown in Fig.6d and Fig.S5, using:
+5.Finally obtain the bond valence vs time plots shown in Fig.6a and Fig.S10, the histogram of bond valences at final frame shown in Fig.6b and Fig.S6, the histogram of final structures shown in Fig.6c and Fig.S5, and the histogram of chain lengths shown in Fig.6d and Fig.S7, using:
 
 *bash job_plotting*
 

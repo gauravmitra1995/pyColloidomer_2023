@@ -60,4 +60,11 @@ current_dir=$(pwd)
 $wrapper python -u averageoverallseeds.py --Nclusters $Nclusters --Np $Np --R $R --radiusB $radiusB --kAB $kAB --dimension $dimension --epsilon $epsilon --kspring $kspring --gammaA $gammaA --gammapatch $gammapatch --r0 $restlength
 
 
+#only calculate asymmetry between patches if its a trimer system
+if [ $Nclusters -eq 3 ];then
+        $wrapper python -u averageoverallseeds_asymmetryfortrimer.py --Nclusters $Nclusters --Np $Np --R $R --radiusB $radiusB --kAB $kAB --dimension $dimension --epsilon $epsilon --kspring $kspring --gammaA $gammaA --gammapatch $gammapatch --r0 $restlength
+fi
+
+
+
  

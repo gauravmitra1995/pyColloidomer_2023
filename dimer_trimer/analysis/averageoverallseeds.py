@@ -63,9 +63,8 @@ timesteps_seeds=[]
 #NUMBER OF BINDERS REMAINING ON DROPLET SURFACE 
 
 for filename in sorted(glob.glob(str(os.getcwd())+"/../simulation_setup/"+str(simulationtype)+"/gammaA"+str(gammaA)+"_gammapatch"+str(gammapatch)+"/selfavoiding/Nclusters"+str(Nclusters)+"/Np"+str(Np)+"/R"+str(R)+"/radiusB"+str(radiusB)+"/kAB"+str(kAB)+"/epsilon"+str(epsilon)+"/dimension"+str(dimension)+"/kspring"+str(kspring)+"/seed*/restlength"+str(r0)+"/"+str(simulationtype)+"_restl"+str(r0)+"_Nc"+str(Nclusters)+"_Np"+str(Np)+"_R"+str(R)+"_rB"+str(radiusB)+"_kAB"+str(kAB)+"_eps"+str(epsilon)+"_dim"+str(dimension)+"_kspring"+str(kspring)+"_gammaA"+str(gammaA)+"_gammapatch"+str(gammapatch)+"_seed*.allruns.num_unbondedpatches.data"),key=lambda x:(int(((os.path.basename(x).split("_")[12]).split(".")[0]).replace('seed','')))):
-
     seed=int(((os.path.basename(filename).split("_")[12]).split(".")[0]).replace('seed',''))
-    data = (np.load(filename,allow_pickle=True))
+    data = (np.load(filename,allow_pickle=True))    
     seedlist.append(seed)
     unbondedbinderslist_allseeds[seed]=data[0]
     timesteplist=data[1]
@@ -88,3 +87,5 @@ output_file_unbondedbinders_allseeds=str(os.getcwd())+"/unbondedpatches_vs_time_
 
 x=np.array([mean_unbondedbinders_allseeds,stddev_unbondedbinders_allseeds,timesteplist],dtype=object)
 x.dump(output_file_unbondedbinders_allseeds)
+
+

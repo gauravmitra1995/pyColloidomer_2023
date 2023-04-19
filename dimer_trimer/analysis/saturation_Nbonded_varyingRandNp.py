@@ -167,6 +167,6 @@ def get_heatmaps(Nclusters,r0,kAB,radiusB,dimension,kspring,gammaA,gammapatch,cl
     """
     
     
-for i in range(0,1,1):
+for i in range(0,2,1):
     clusterid=i
     get_heatmaps(Nclusters,r0,kAB,radiusB,dimension,kspring,gammaA,gammapatch,clusterid)

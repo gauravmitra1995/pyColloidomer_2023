@@ -78,9 +78,52 @@ def get_heatmaps(Nclusters,r0,kAB,radiusB,dimension,kspring,gammaA,gammapatch,cl
         results.append(np.array([R,Np,Nbonded]))
 
     results=np.array(results)
-    
-    #Heat map
 
+    #N_bonded vs N_b for different R 
+
+    ctr=0
+    fig,ax=plt.subplots(figsize=(22,15),dpi=100)
+    colormap=plt.cm.jet
+    colors = [colormap(i) for i in np.linspace(0,1,len(Rlist))]
+    r=0
+    for R in Rlist:
+        saturationfracbonded_allNp=[]
+        saturationfracunbonded_allNp=[]
+        numbonded_allNp=[]
+        for Np in Nplist:
+            label=(R,Np)
+            saturationfracunbonded=saturationfractionunbonded_dict[label]
+            saturationfracbonded=1.0-saturationfracunbonded
+            numbonded=saturationfracbonded*label[1]
+            saturationfracbonded_allNp.append(saturationfracbonded)
+            saturationfracunbonded_allNp.append(saturationfracunbonded)
+            numbonded_allNp.append(numbonded)
+            ctr+=1
+        plt.plot(Nplist,numbonded_allNp,marker='o',markersize=20.0,color=colors[r],linewidth=10.0,label=r'$R=$'+str(R))
+        r+=1
+    
+    plt.legend(loc='best',ncol=2,prop={'size': 40})
+    plt.xlabel(r'$N_{b}$',fontsize=60)
+    for axis in ['top','bottom','left','right']:
+        ax.spines[axis].set_linewidth(5)
+    if(Nclusters==2 and clusterid==0):
+        plt.title('Dimer',fontsize=60)
+    elif(Nclusters==2 and clusterid==1):
+        plt.title('Dimer',fontsize=60)
+    elif(Nclusters==3 and clusterid==0):
+        plt.title('Trimer (terminal droplet)',fontsize=60)
+    elif(Nclusters==3 and clusterid==1):
+        plt.title('Trimer (middle droplet)',fontsize=60)
+    plt.ylabel(r'${N_{\mathrm{bonded}}}^{t=t_f}$',fontsize=60)
+    plt.xticks(fontsize=50)
+    plt.yticks(fontsize=50)
+    fig.tight_layout()
+    plt.savefig('final_figures/Nclusters'+str(Nclusters)+'_clusterid'+str(clusterid)+'_Nbondedatsaturation_vs_Nb_differentR.png',bbox_inches='tight')
+    plt.close()
+
+    
+    #Heat map (earlier figure, now we just have the figure above)
+    """
     fig,ax=plt.subplots(figsize=(21,15),dpi=100)
 
     x=results[:,0]
@@ -121,7 +164,9 @@ def get_heatmaps(Nclusters,r0,kAB,radiusB,dimension,kspring,gammaA,gammapatch,cl
     fig.tight_layout()
     plt.savefig('final_figures/Nclusters'+str(Nclusters)+'_clusterid'+str(clusterid)+'_RandNpheatmap_Nbondedatsaturation.png',bbox_inches='tight')
     plt.close()
+    """
     
-for i in range(0,2,1):
+    
+for i in range(0,1,1):
     clusterid=i
     get_heatmaps(Nclusters,r0,kAB,radiusB,dimension,kspring,gammaA,gammapatch,clusterid)

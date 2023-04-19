@@ -8,11 +8,11 @@
 
 *saturation_data* contains the data for the value of this fraction at saturation for various choices of R when (a) Np is varied and epsilon is fixed (b) epsilon is varied and Np is fixed. This data is basically used to construct all the 6 heat maps shown in Fig.3 of the main text and the one in Fig.S2 of SI.
 
-*final_figures* contain all the heat maps (Fig.3), the Nbonded vs Np plot at saturation for different R (Fig. S4)  and also the plots showing the variation of the fraction of available binders with time (and the fitted curves are shown too). 
+*final_figures* contain all the heat maps (Fig.3), the Nbonded vs Np plot at saturation for different R (Fig. S4)  and also the plots showing the variation of the fraction of available binders with time (and the fitted curves are shown too, Fig S1). 
 
 *differencepatches_vs_time_data_new* contains all the asymmetry of patches data for trimer (Fig S3).
 
-*tauvariation_vs_konkoff* contains all data, releavnt analysis scripts and plots for the variation of the recruitment time with changing kon (or koff) for 2 epsilons. (Fig S2).
+*tauvariation_vs_konkoff* contains all data, relevant analysis scripts and plots for the variation of the recruitment time with changing kon (or koff) for 2 epsilons. (Fig S2).
 
 
 **B) Instructions and sequence for running the scripts to generate the figures used in main text and SI:**

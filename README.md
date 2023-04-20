@@ -1,3 +1,5 @@
+**A Coarse-Grained Simulation Model for Colloidal Self-Assembly via Explicit Mobile Binders (SUBMITTED)**
+
 **(Gaurav Mitra, Chuan Chang, Angus McMullen, Daniela Puchall, Jasna Brujic, and Glen M. Hocky)**
 
 

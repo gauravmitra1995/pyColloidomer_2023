@@ -1,6 +1,5 @@
 import os
 import sys
-import hoomd
 import pickle
 import numpy as np
 from gsd import hoomd as gsd

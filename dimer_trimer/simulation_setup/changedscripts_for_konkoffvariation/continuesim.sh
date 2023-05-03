@@ -1,27 +1,31 @@
 #!/bin/bash
 
 scriptdir=$(cd $(dirname $0);pwd)
-wrapper=$scriptdir/../../dybond/run-hoomd2.9.6.bash
+wrapper=$scriptdir/../../../dybond/run-hoomd2.9.6.bash
 
 #Run all subsequent restart runs after first run using this script
 
 simulationtype='polymer'
 selfavoidchain=1
 gammaA=0.1
-gammapatch=0.0001
-koninit=100.0
 metropolis=1
 kspring=10.0
 
-ntasks="1 2 3 4 5 6 7 8 9 10"
+ntasks="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20"
 
 for Np in 100;do
     for R in 50.0;do
            for rB in 1.0;do
                 for kAB in 200.0;do
                     for Nclusters in 2;do
-                           for koffinit in 0.0000001;do
-                               for dimension in 2;do
+                            for gammapatch in 0.0001 0.001 0.01;do
+                                #for kon_koff in 100.0_0.0000001 50.0_0.00000005 25.0_0.000000025 20.0_0.00000002 10.0_0.00000001 5.0_0.000000005;do
+                                for kon_koff in 100.0_0.001 50.0_0.0005 25.0_0.00025 20.0_0.0002 10.0_0.0001 5.0_0.00005;do
+                                 for dimension in 2;do
+
+                                    koninit=$(echo $kon_koff |cut -f 1 -d '_')
+                                    koffinit=$(echo $kon_koff |cut -f 2 -d '_')
+
 				   if [ $koffinit -eq 0 ];then
 				       epsilon='infinite'
 				   else
@@ -82,7 +86,7 @@ for Np in 100;do
 			          
 			    done
                         done
-                
+               done
                done 
         done
     done

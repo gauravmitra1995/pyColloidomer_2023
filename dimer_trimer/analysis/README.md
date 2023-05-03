@@ -65,25 +65,24 @@
 
 *$wrapper difference_in_patches_terminaldroplets_varyRandeps.py --Nclusters 3 --Np 100*
 
-
-8.To generate the plots of fraction of unrecruited binders over time for various kon/koff pairs at different gamma(binder) and getting the recruitment and saturation times, do:
+8.To generate the recruitment times for various kon/koff pairs at different gamma(binder), do:
 
 *wrapper=./../../dybond/run-hoomd2.9.6.bash*
 
 *cd tauvariation_vs_konkoff/*
 
-*$wrapper python unbondedpatches_vs_time_varykonkoff.py --epsilon 20.7 --gammapatch 0.0001*
+*$wrapper python unbondedpatches_vs_time_varykonkoff_geterrorbars.py --epsilon 20.7 --gammapatch 0.0001*
 
-*$wrapper python unbondedpatches_vs_time_varykonkoff.py --epsilon 11.5 --gammapatch 0.0001*
+*$wrapper python unbondedpatches_vs_time_varykonkoff_geterrorbars.py --epsilon 11.5 --gammapatch 0.0001*
 
 and so on....
 
 
 9.Then to plot the recruitment times as a function of kon (or koff) and gamma(binder), do:
 
-*$wrapper python plot_tau_vs_kon.py --epsilon 11.5*
+*$wrapper python plot_tau_vs_kon_witherrorbars.py --epsilon 11.5*
 
-*$wrapper python plot_tau_vs_kon.py --epsilon 20.7*
+*$wrapper python plot_tau_vs_kon_witherrorbars.py --epsilon 20.7*
 
 
 10.In order to unwrap the simulation trajectory, align the droplets along a given direction (x/y/z) and bring them to the center of the simulation box, do: *bash job_align*

@@ -89,7 +89,7 @@ def get_phasediagrams(Nclusters,r0,kAB,radiusB,dimension,kspring,gammaA,gammapat
 
     cb=fig.colorbar(im, ax=ax)
     im.set_clim(0.0,np.max(Z))
-    cb.set_label(r'$\frac{|N_{\mathrm{ub},t=t_f}^{(0)}-N_{\mathrm{ub},t=t_f}^{(2)}|}{\frac{1}{2}(N_{\mathrm{ub},t=t_f}^{(0)}+N_{\mathrm{ub},t_f}^{(2)})}$',labelpad=+25,fontsize=100)
+    cb.set_label(r'$\frac{|N_{\mathrm{ub},t=t_f}^{(0)}-N_{\mathrm{ub},t=t_f}^{(2)}|}{\frac{1}{2}(N_{\mathrm{ub},t=t_f}^{(0)}+N_{\mathrm{ub},t=t_f}^{(2)})}$',labelpad=+25,fontsize=100)
     cb.ax.tick_params(labelsize=50)
     plt.xticks(np.arange(20,220,20),fontsize=50)
     plt.yticks(np.arange(5.0,30.0,5.0),fontsize=50)

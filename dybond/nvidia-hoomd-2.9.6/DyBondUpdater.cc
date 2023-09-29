@@ -66,7 +66,8 @@ void DyBondUpdater::set_params(std::string bond_type,
 	B_type = m_pdata->getTypeByName(B);
 
 	cout<<"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"<<endl;
-	cout<<"Using DynBondUpdater latest updated version (December 2022)"<<endl;
+	cout<<"Using DynBondUpdater latest updated version (October 2023) after resolving the most recent bug with Pon (with metropolis)"<<endl;
+        cout<<"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"<<endl;
 
 	cout<<"First bondable particle type: "<<first_type.c_str()<<endl;
 	cout<<"Second bondable particle type: "<<second_type.c_str()<<endl;
@@ -572,7 +573,7 @@ void DyBondUpdater::update(unsigned int timestep)
 	       }		 
 
                m_kon=calc_kon(m_Tmelt,m_alpha,curr_T,m_koninit,m_konmelt,flag_T);
-               m_Pon=m_kon*m_checksteps*m_dt;                  //Calculating Pon from kon
+               m_Pon_default=m_kon*m_checksteps*m_dt;                  //Calculating Pon from kon
                  
 	     
 	       for(unsigned int k=0;k<bonds_to_add_idx_list.size();k++)
@@ -593,7 +594,7 @@ void DyBondUpdater::update(unsigned int timestep)
 
 		 //add Metropolis criterion to satisfy detailed balance
 
-		 m_Pon*=exp(-0.5*flag_MP*m_kspring/curr_T*pow(distance-m_r0,2));
+		 m_Pon=(m_Pon_default)*exp(-0.5*flag_MP*m_kspring/curr_T*pow(distance-m_r0,2)); //resolving the earlier bug here (by introducing a default Pon variable)  Pon would be changing everytime inside this loop
 		 
 		 double r;
 		 r=unif(rng);

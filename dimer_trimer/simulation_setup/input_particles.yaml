@@ -54,13 +54,13 @@
        epsilon: 200.0
        rcut: 
     CC:
-       epsilon: 0
+       epsilon: 
        rcut:
     DD:
-       epsilon: 0
+       epsilon: 
        rcut:
     CD:
-       epsilon: 0
+       epsilon: 
        rcut:
  
   dybond: 

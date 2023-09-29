@@ -57,8 +57,9 @@ class DyBondUpdater : public Updater
         const std::shared_ptr<ComputeThermo> m_thermo; //!< compute for thermodynamic quantities
         Scalar m_rmin;
         Scalar m_rmax;               
-        Scalar m_Pon;//Probability for binding
-        Scalar m_Poff;//Probability for unbinding
+        Scalar m_Pon_default; //default probability for binding
+        Scalar m_Pon;//probability for binding after metropolis is applied
+        Scalar m_Poff;//probability for unbinding
         Scalar m_kon;
         Scalar m_koff;
         Scalar m_r0;
